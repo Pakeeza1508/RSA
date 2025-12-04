@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RSA Algorithm Steps</title>
+
+<style>
+  body {
+    font-family: "Segoe UI", sans-serif;
+    background: #ffffff;
+    color: #2d2d2d;
+    padding: 20px;
+  }
+
+  h1 {
+    text-align: center;
+    color: #6a0dad; /* Purple */
+    margin-bottom: 30px;
+  }
+
+  .step-card {
+    background: #ffffff;
+    border-left: 5px solid #c084fc; /* Light Purple */
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+
+  .step-header {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #6a0dad; /* Purple */
+    margin-bottom: 10px;
+  }
+
+  ol {
+    margin-left: 20px;
+  }
+
+  li {
+    margin-bottom: 8px;
+  }
+
+  .formula-box {
+    background: #6a0dad; 
+    color: #fff;
+    padding: 10px;
+    border-radius: 6px;
+    font-family: monospace;
+    margin: 8px 0;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+  }
+
+  th, td {
+    border: 1px solid #e5e7eb;
+    padding: 6px;
+    text-align: center;
+  }
+
+  th {
+    background: #f3e8ff; /* Purple Tint */
+    color: #4b0082;
+  }
+
+  /* Button Styling */
+  .btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 25px;
+    background: #6a0dad;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: 0.3s ease;
+    border: none;
+  }
+
+  .btn:hover {
+    background: #530a9c;
+  }
+
+  .btn-container {
+    text-align: center;
+    margin-top: 30px;
+  }
+</style>
+</head>
+
+<body>
+
+<h1>RSA Algorithm Step-by-Step</h1>
+
+<div class="step-card">
+  <div class="step-header">Step 1: Key Generation</div>
+  <ol>
+    <li>Select two distinct prime numbers <strong>p</strong> and <strong>q</strong>.</li>
+    <li>Compute <strong>n = p × q</strong>.</li>
+    <div class="formula-box">n = p × q</div>
+    <li>Compute Euler's totient: <strong>φ(n) = (p-1) × (q-1)</strong>.</li>
+    <div class="formula-box">φ(n) = (p-1) × (q-1)</div>
+    <li>Select an integer <strong>e</strong> such that 1 &lt; e &lt; φ(n) and gcd(e, φ(n)) = 1.</li>
+    <li>Compute <strong>d</strong>, the modular inverse: <br> d × e ≡ 1 (mod φ(n)).</li>
+    <div class="formula-box">d × e ≡ 1 (mod φ(n))</div>
+    <li>Public key: KU = {e, n}</li>
+    <li>Private key: KR = {d, n}</li>
+  </ol>
+</div>
+
+<div class="step-card">
+  <div class="step-header">Step 2: Encryption</div>
+  <ol>
+    <li>Take plaintext <strong>M</strong> where M &lt; n.</li>
+    <li>Compute ciphertext:</li>
+    <div class="formula-box">C = M<sup>e</sup> mod n</div>
+  </ol>
+</div>
+
+<div class="step-card">
+  <div class="step-header">Step 3: Decryption</div>
+  <ol>
+    <li>Take ciphertext <strong>C</strong>.</li>
+    <li>Compute original message:</li>
+    <div class="formula-box">M = C<sup>d</sup> mod n</div>
+  </ol>
+</div>
+
+<div class="step-card">
+  <div class="step-header">Summary Table</div>
+  <table>
+    <tr>
+      <th>Step</th>
+      <th>Formula</th>
+      <th>Result</th>
+    </tr>
+    <tr>
+      <td>Key Generation</td>
+      <td>n = p × q, φ(n), choose e, compute d</td>
+      <td>Public Key: {e,n}<br>Private Key: {d,n}</td>
+    </tr>
+    <tr>
+      <td>Encryption</td>
+      <td>C = M<sup>e</sup> mod n</td>
+      <td>Ciphertext</td>
+    </tr>
+    <tr>
+      <td>Decryption</td>
+      <td>M = C<sup>d</sup> mod n</td>
+      <td>Original Message</td>
+    </tr>
+  </table>
+</div>
+
+<div class="btn-container">
+  <a href="rsa-final.html" class="btn">Go to Interactive Demo</a>
+</div>
+
+</body>
+</html>
